@@ -81,18 +81,18 @@
                   <br>
                   <input type="text" class="col-7 form-control" placeholder="Lastname" id="Lastname" required>
                   <br>
-                  <input type="text" class="col-7 form-control" placeholder="Email ID" id="Email ID" required>
+                  <input type="email" class="col-7 form-control" placeholder="Email ID" id="Email_ID" required>
                   <br>
                   <input type="text" class="col-7 form-control" placeholder="Username" id="Username" required >
                   <div class="alert alert-danger" role="alert"  id="msg4" hidden >
                   </div>
                   <br>
-                  <input type="text" class="col-7 form-control" placeholder="Password" id="Password" required>
+                  <input type="password" class="col-7 form-control" placeholder="Password" id="Password" autocomplete="on" required>
                   <br>
                   <div class="alert alert-danger" role="alert" id="msg1" hidden>
                     Minimum Length 8 Characters
                   </div>
-                  <input type="text" class="col-7 form-control" placeholder="Re-Enter Password" id="Repassword" required>
+                  <input type="password" class="col-7 form-control" placeholder="Re-Enter Password" id="Repassword" autocomplete="on" required>
                   <br> 
                   <div class="alert alert-danger" role="alert"  id="msg2" hidden>
                     Password Mismatch
@@ -100,7 +100,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="Submit" class="btn btn-primary" id="register" disabled>Register</button>
+                <button type="button" class="btn btn-primary" id="register" disabled>Register</button>
               </div>
             </form>
             </div>
@@ -126,7 +126,7 @@
             });
 // Second Password Check
 
-            $("#Repassword").on('keyup keypress keydown', function(){
+            $("#Repassword,#Password").on('keyup keypress keydown', function(){
               var password=$("#Password").val();
               var repassword=$("#Repassword").val();
               if(password != repassword)
@@ -155,7 +155,7 @@ $("#Username").on('keyup keypress keydown', function(){
   {
     $("#msg4").hide();
     $("#msg4").text("");
-    
+    // Ajax to check If user Name Already Exsist
     $.ajax({
       url: "validateusername.php",
       type : "POST",
@@ -184,10 +184,41 @@ $("#Username").on('keyup keypress keydown', function(){
   }
 });
 
+//Registration
+$("#register").click(function(){
+  var Firstname=$("#Firstname").val();
+  var Lastname=$("#Lastname").val();
+  var email=$("#Email_ID").val();
+  var Username=$("#Username").val();
+  var password=$("#Password").val();
+  window.console.log(Firstname,Lastname,email);
+  $.ajax({    
+      url : "register.php",
+      type:"POST",
+      data:{Firstname: Firstname, Lastname: Lastname,Email:email,Userid:Username,pass:password},
+
+      success:function(getdata)
+      {
+          if(getdata=="SUCCESS")
+          {
+              window.alert("SUCCESFULLY REGISTERED");
+          }
+          if(getdata=="FAIL")
+          {
+              window.alert("RETRY AGAIN");
+          }
+
+      },
+      error:function(errordata){
+          window.console.log(errordata)
+      }
+  });
+});
+
     </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script type="text/javascript" src="assets/js/home.js"></script>
+    <script type="text/javascript" src="home.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
