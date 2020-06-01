@@ -1,0 +1,32 @@
+//Registration
+/*
+$("#register").click(function(){
+  var Firstname=$("#Firstname").val();
+  var Lastname=$("#Lastname").val();
+  var email=$("#Email_ID").val();
+  var Username=$("#Username").val();
+  var password=$("#Password").val();
+  window.console.log(Firstname,Lastname,email);
+  $.ajax({    
+      url : "register.php",
+      type:"POST",
+      data:{Firstname: Firstname, Lastname: Lastname,Email:email,Userid:Username,pass:password},
+
+      success:function(getdata)
+      {
+          if(getdata=="SUCCESS")
+          {
+              window.alert("SUCCESFULLY REGISTERED");
+          }
+          if(getdata=="FAIL")
+          {
+              window.alert("RETRY AGAIN");
+          }
+
+      },
+      error:function(errordata){
+          window.console.log(errordata)
+      }
+  });
+});
+*/

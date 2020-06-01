@@ -75,24 +75,24 @@
               <div class="modal-body">
                 <div class="alert alert-danger" role="alert"  id="msg3" hidden>
                 </div>
-                <form class="form-group">
+                <form class="form-group" action="register.php" method="POST">
                   
-                  <input type="text" class="col-7  form-control" placeholder="Firstname" id="Firstname" required>
+                  <input type="text" class="col-7  form-control" placeholder="Firstname" id="Firstname" required name="Firstname">
                   <br>
-                  <input type="text" class="col-7 form-control" placeholder="Lastname" id="Lastname" required>
+                  <input type="text" class="col-7 form-control" placeholder="Lastname" id="Lastname" name="Lastname" required>
                   <br>
-                  <input type="email" class="col-7 form-control" placeholder="Email ID" id="Email_ID" required>
+                  <input type="email" class="col-7 form-control" placeholder="Email ID" id="Email_ID" name="Email"" required>
                   <br>
-                  <input type="text" class="col-7 form-control" placeholder="Username" id="Username" required >
+                  <input type="text" class="col-7 form-control" placeholder="Username" id="Username" name="Username" required >
                   <div class="alert alert-danger" role="alert"  id="msg4" hidden >
                   </div>
                   <br>
-                  <input type="password" class="col-7 form-control" placeholder="Password" id="Password" autocomplete="on" required>
+                  <input type="password" class="col-7 form-control" placeholder="Password" id="Password" name="pass"  required>
                   <br>
                   <div class="alert alert-danger" role="alert" id="msg1" hidden>
                     Minimum Length 8 Characters
                   </div>
-                  <input type="password" class="col-7 form-control" placeholder="Re-Enter Password" id="Repassword" autocomplete="on" required>
+                  <input type="password" class="col-7 form-control" placeholder="Re-Enter Password" id="Repassword"  required>
                   <br> 
                   <div class="alert alert-danger" role="alert"  id="msg2" hidden>
                     Password Mismatch
@@ -100,7 +100,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="register" disabled>Register</button>
+                <button type="submit" class="btn btn-primary" id="register" disabled>Register</button>
               </div>
             </form>
             </div>
@@ -172,8 +172,8 @@ $("#Username").on('keyup keypress keydown', function(){
         }
         else
         {
-          $("#msg4").text(data),
-        $( "#register" ).prop( "disabled", false )
+          $("#msg4").text("Not Valid"),
+        $( "#register" ).prop( "disabled", true )
         $("#msg4").removeClass("alert-success");
         $("#msg4").addClass("alert-danger");
         $("#msg4").show();
@@ -182,37 +182,6 @@ $("#Username").on('keyup keypress keydown', function(){
       },
       });
   }
-});
-
-//Registration
-$("#register").click(function(){
-  var Firstname=$("#Firstname").val();
-  var Lastname=$("#Lastname").val();
-  var email=$("#Email_ID").val();
-  var Username=$("#Username").val();
-  var password=$("#Password").val();
-  window.console.log(Firstname,Lastname,email);
-  $.ajax({    
-      url : "register.php",
-      type:"POST",
-      data:{Firstname: Firstname, Lastname: Lastname,Email:email,Userid:Username,pass:password},
-
-      success:function(getdata)
-      {
-          if(getdata=="SUCCESS")
-          {
-              window.alert("SUCCESFULLY REGISTERED");
-          }
-          if(getdata=="FAIL")
-          {
-              window.alert("RETRY AGAIN");
-          }
-
-      },
-      error:function(errordata){
-          window.console.log(errordata)
-      }
-  });
 });
 
     </script>
