@@ -10,13 +10,17 @@ $query="INSERT INTO `users`(`First_Name`, `Last_Name`, `Email`, `Username`, `Pas
 $res=mysqli_query($conn,$query);
 if($res)
 {
-    echo "<script type='text/javascript'>window.alert('Regestration Successfull')<script>";
+   ?>
+   <script>
+       alert("SUCCESS");
+       window.location.href = "index.html";
+       </script>
+   <?php
 }
 else
 {
-    echo "FAIL";
-    echo $firstname,$password,$emailid,$lastname;
-    echo $password;
-    echo "\n User id is:".$userid;
+    ?>
+    <script>window.location.href = "index.html";</script>
+    <?php
 }
 ?>
