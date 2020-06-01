@@ -54,7 +54,7 @@
         </div>
         <div class="col-md-3 col-lg-3 col-xl-6 col-1">
           <div class="row align-items-center ">
-            <img src="homepage.svg" style="width: 20rem;" id="homeimg">
+            <img src="assets/homepage.svg" style="width: 20rem;" id="homeimg">
         </div>
       </div>
         </div>
@@ -73,30 +73,30 @@
               <div class="modal-body">
                 <form class="form-group">
                   
-                  <input type="text" class="col-7  form-control" placeholder="Firstname">
+                  <input type="text" class="col-7  form-control" placeholder="Firstname" id="Firstname" required>
                   <br>
-                  <input type="text" class="col-7 form-control" placeholder="Lastname">
+                  <input type="text" class="col-7 form-control" placeholder="Lastname" id="Lastname" required>
                   <br>
-                  <input type="text" class="col-7 form-control" placeholder="Email ID">
+                  <input type="text" class="col-7 form-control" placeholder="Email ID" id="Email ID" required>
                   <br>
-                  <input type="text" class="col-7 form-control" placeholder="Username">
+                  <input type="text" class="col-7 form-control" placeholder="Username" id="Username" required >
                   <br>
-                  <input type="text" class="col-7 form-control" placeholder="Password">
+                  <input type="text" class="col-7 form-control" placeholder="Password" id="Password" required>
                   <br>
-                  <div class="alert alert-danger" role="alert">
+                  <div class="alert alert-danger" role="alert" id="msg1" hidden>
                     Minimum Length 8 Characters
                   </div>
-                  <input type="text" class="col-7 form-control" placeholder="Re-Enter Password" >
+                  <input type="text" class="col-7 form-control" placeholder="Re-Enter Password" id="Repassword" required>
                   <br> 
-                  <div class="alert alert-danger" role="alert">
+                  <div class="alert alert-danger" role="alert"  id="msg2" hidden>
                     Password Mismatch
                   </div>
-                </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="Submit" class="btn btn-primary">Register</button>
+                <button type="Submit" class="btn btn-primary" id="register" disabled>Register</button>
               </div>
+            </form>
             </div>
           </div>
         </div>
@@ -105,22 +105,34 @@
     
     <script>
 
-            $("#input1").keyup(function(){
-              var name= $("#input1").val();
-              if(name.length <= 8)
+            $("#Password").on('keyup keypress keydown', function(){
+              var name= $("#Password").val();
+              if(name.length < 8)
               {
-                $("#firstname").text("Name to short");
-                $("#firstname").css("background-color","");
-                $( "#input2" ).prop( "disabled", true );
+                $("#msg1").prop("hidden",false);
+                $( "#register" ).prop( "disabled", true );
+                $("#msg1").show();
               }
               else
               {
-                $("#firstname").text("Success");
-                $("#firstname").css("background-color","GREEN");
-                $( "#input2" ).prop( "disabled", false );
+                $("#msg1").hide();
               }
+            });
 
-
+            $("#Repassword").on('keyup keypress keydown', function(){
+              var password=$("#Password").val();
+              var repassword=$("#Repassword").val();
+              if(password != repassword)
+              {
+                $("#msg2").prop("hidden",false);
+                $( "#register" ).prop( "disabled", true );
+                $("#msg2").show()
+              }
+              else
+              {
+                $("#msg2").hide();
+                $( "#register" ).prop( "disabled", false );
+              }
             });
     </script>
     <!-- Optional JavaScript -->
