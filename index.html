@@ -3,7 +3,7 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -12,10 +12,6 @@
 
     <title>Learning</title>
     <style>
-      
-      @media (max-width: 575.98px)  {
-        img.responsive { width: 20px; }
-      }
 
     </style>
   </head>
@@ -35,9 +31,9 @@
       <div class="container-fluid ">
         <br><br><br><br><br><br>
           <div class="row align-items-center ">
-            <div class="col-md-8 col-lg-6 col-xl-6 col-xs-4">
+            <div class="col-md-6 col-lg-6 col-xl-6 col-xs-6">
               <div class="row align-items-center">
-              <div class="col-lg-5 offset-lg-3 col-md-4 border border-primary shadow-lg p-3 mb-5 bg-white rounded" >
+              <div class="col-lg-5 offset-lg-3 offset-md-2 col-md-6 border border-primary shadow-lg p-3 mb-5 bg-white rounded" >
           <form action="" class="form-group ">
             <label for="input1">User Name</label> 
             <input type="text" name="input1" id="input1" class="form-control ">
@@ -53,9 +49,9 @@
         </div>
       </div>
         </div>
-        <div class="col-md-3 col-lg-3 col-xl-6 col-1">
+        <div class="col-md-6 col-lg-6 col-xl-6 col-6">
           <div class="row align-items-center ">
-            <img src="assets/homepage.svg" style="width: 20rem;" id="homeimg">
+            <img src="assets/homepage.svg" style="width: 40rem;" id="homeimg">
         </div>
       </div>
         </div>
@@ -77,30 +73,31 @@
                 </div>
                 <form class="form-group" action="register.php" method="POST">
                   
-                  <input type="text" class="col-7  form-control" placeholder="Firstname" id="Firstname" required name="Firstname">
+                  <input type="text" class="col-9  form-control" placeholder="Firstname" id="Firstname" required name="Firstname">
                   <br>
-                  <input type="text" class="col-7 form-control" placeholder="Lastname" id="Lastname" name="Lastname" required>
+                  <input type="text" class="col-9 form-control" placeholder="Lastname" id="Lastname" name="Lastname" required>
                   <br>
-                  <input type="email" class="col-7 form-control" placeholder="Email ID" id="Email_ID" name="Email"" required>
+                  <input type="email" class="col-9 form-control" placeholder="Email ID" id="Email_ID" name="Email"" required>
                   <br>
-                  <input type="text" class="col-7 form-control" placeholder="Username" id="Username" name="Username" required >
+                  <input type="text" class="col-9 form-control" placeholder="Username" id="Username" name="Username" required >
                   <div class="alert alert-danger" role="alert"  id="msg4" hidden >
                   </div>
                   <br>
-                  <input type="password" class="col-7 form-control" placeholder="Password" id="Password" name="pass"  required>
+                  <input type="password" class="col-9 form-control" placeholder="Password" id="Password" name="pass"  required>
                   <br>
                   <div class="alert alert-danger" role="alert" id="msg1" hidden>
                     Minimum Length 8 Characters
                   </div>
-                  <input type="password" class="col-7 form-control" placeholder="Re-Enter Password" id="Repassword"  required>
+                  <input type="password" class="col-9 form-control" placeholder="Re-Enter Password" id="Repassword"  required>
                   <br> 
                   <div class="alert alert-danger" role="alert"  id="msg2" hidden>
                     Password Mismatch
                   </div>
               </div>
-              <div class="modal-footer">
+              <div class="modal-footer"><center>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary" id="register" disabled>Register</button>
+              </center>
               </div>
             </form>
             </div>
@@ -118,6 +115,7 @@
                 $("#msg1").prop("hidden",false);
                 $( "#register" ).prop( "disabled", true );
                 $("#msg1").show();
+                $("#Password").css("Border-color","RED");
               }
               else
               {
@@ -139,6 +137,30 @@
               {
                 $("#msg2").hide();
                 $( "#register" ).prop( "disabled", false );
+              }
+            });
+
+            // screen size
+
+            $(document).ready(function(){
+                if($(window).width() <  1000)
+                {
+                  $("#homeimg").css("width","20rem");
+                }
+            });
+
+            $(window).resize(function(){
+
+              var x=$(window).width();
+              window.console.log(x);
+              
+              if(x<320)
+              {
+                $("#homeimg").css("width","10rem");
+              }
+              else if(x<650)
+              {
+                $("#homeimg").css("width","20rem");
               }
             });
 // User Name Check
