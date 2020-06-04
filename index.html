@@ -37,8 +37,13 @@
             <input type="text" name="input1" id="input1" class="form-control ">
             <p id="firstname"></p>
             <label for="input2">Password</label>   
-            <input type="text" name="input2" id="input2" class="form-control" >
+            <input type="password" name="input2" id="input2" class="form-control" >
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" onclick="myfunction('input2')">
+              <label class="form-check-label" for="inlineCheckbox1">Show Password</label>
+            </div>
             <br>
+
             <input type="submit" class="btn btn-primary col-5" >
             <button type="button" class="btn btn-primary col-5" data-toggle="modal" data-target="#exampleModal">
               Register
@@ -83,7 +88,7 @@
                   <br>
                   <input type="password" class="col-9 form-control" placeholder="Password" id="Password" name="pass"  required>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" onclick="myfunction()">
+                    <input class="form-check-input" type="checkbox" onclick="myfunction('Password')">
                     <label class="form-check-label" for="inlineCheckbox1">Show Password</label>
                   </div>
                   <br>
@@ -110,10 +115,10 @@
     <!-- Main End -->
     
     <script>
-
-      function myfunction()
+// Show password
+      function myfunction(id)
       {
-        var x= document.getElementById("Password");
+        var x= document.getElementById(id);
         if(x.type=="password")
         {
           x.type="text";
