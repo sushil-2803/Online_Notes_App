@@ -12,17 +12,17 @@
   </head>
   <body>
   <nav class="navbar navbar sticky-top navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="home.php">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#"> home<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#"> HOME <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active " >
       <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Logout</button>
@@ -58,6 +58,7 @@
     </div>
     </div>
   </div>
+  <!-- Card To display End -->
 </form>
  <?php
  $numer=$numer-1;
