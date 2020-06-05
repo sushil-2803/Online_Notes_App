@@ -43,6 +43,7 @@
     
 
     ?>
+    <!-- Card To display Note  -->
 <form method="post" action="">
   <div class="col mb-4 ">
     <div class="card">
