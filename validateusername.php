@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 include 'db.php';
 $username=$_POST['username'];
 $query="SELECT * FROM users WHERE Username ='$username'";
@@ -11,4 +11,4 @@ else
 {
     echo "User Name Valid";
 }
-?>
+?> -->
