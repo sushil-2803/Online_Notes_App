@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 include 'db.php';
  $firstname= $_POST['Firstname'];
  $lastname= $_POST['Lastname'];
@@ -23,4 +23,4 @@ else
     <script>window.location.href = "index.html";</script>
     <?php
 }
-?> -->
+?>
