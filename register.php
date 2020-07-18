@@ -6,7 +6,7 @@ include 'db.php';
  $emailid= $_POST['Email'];
  $password= $_POST['pass'];
 
-$query="INSERT INTO `users`(`First_Name`, `Last_Name`, `Email`, `Username`, `Password`) VALUES ('$firstname','$lastname','$emailid','$userid','$password')";
+$query="INSERT INTO `user_details`(`first_name`, `last_name`, `email_id`, `username`, `password`) VALUES ('$firstname','$lastname','$emailid','$userid','$password')";
 $res=mysqli_query($conn,$query);
 if($res)
 {

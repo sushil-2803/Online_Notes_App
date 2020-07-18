@@ -2,6 +2,6 @@
 $host="localhost";
 $user="root";
 $pwd="";
-$dbname="Notes";
+$dbname="notes";
 $conn=mysqli_connect($host,$user,$pwd,$dbname);
 ?>
