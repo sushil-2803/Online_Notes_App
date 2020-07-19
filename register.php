@@ -13,14 +13,14 @@ if($res)
    ?>
    <script>
        alert("SUCCESS");
-       window.location.href = "index.html";
+      // window.location.href = "index.html";
        </script>
    <?php
 }
 else
 {
     ?>
-    <script>window.location.href = "index.html";</script>
+    <!-- <script>window.location.href = "index.html";</script> -->
     <?php
 }
 ?>
