@@ -12,7 +12,7 @@
   </head>
   <body>
   <nav class="navbar navbar sticky-top navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="home.php">Navbar</a>
+  <a class="navbar-brand" href="home.php"><?php session_start(); echo $_SESSION['username']; ?></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -25,7 +25,7 @@
         <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active " >
-      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Logout</button>
+      <a href="logout.php"><button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Logout</button></a>
       </li>
     </ul>
   </div>

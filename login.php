@@ -12,11 +12,12 @@ if(mysqli_num_rows($res_login)==1)
     {
         session_start();
         $_SESSION['username']=$username;
-        echo "PASS";
+        header("location:home.php");
     }
     else
     {
-        echo "ERROR";
+        echo "<script>alert('Invalid UserId or Password')</script>";
+        header("refresh:0,index.html");
     }
 }
 ?>

@@ -33,7 +33,7 @@
             <div class="col-md-6 col-lg-6 col-xl-6 col-xs-6"> 
               <div class="row align-items-center">
               <div class="col-lg-5 offset-lg-3 offset-md-2 col-md-6 border border-primary shadow-lg p-3 mb-5 bg-white rounded" >
-          <form class="form-group ">
+          <form class="form-group" method="POST" action="login.php">
             <label for="input1">User Name</label> 
             <input type="text" name="user_name" id="user_name" class="form-control ">
             <p id="firstname"></p>
@@ -259,31 +259,31 @@ $("#Username").on('keyup keypress keydown', function(){
  });
 
 // Login ajax
-$('#login_submit').on('click',function(){
-  var user_name1=$('#user_name').val();
- // window.console.log(user_name1);
-  var password_log1=$('#password_log').val();
- // window.console.log(password_log1);
-  //window.console.log("In login script")
-  $.ajax({
-    url: 'login.php',
-    type:"POST",
-    data:{user_name:user_name1,
-    password_log:password_log1},
-    success:function(data)
-    {
-      window.console.log(data);
-      if(data=="PASS")
-      {
-        window.location.href="home.php";
-      }
-      else
-      {
-        alert("ERROR")
-      }
-    }
-  });
-});
+// $('#login_submit').on('click',function(){
+//   var user_name1=$('#user_name').val();
+//  // window.console.log(user_name1);
+//   var password_log1=$('#password_log').val();
+//  // window.console.log(password_log1);
+//   //window.console.log("In login script")
+//   $.ajax({
+//     url: 'login.php',
+//     type:"POST",
+//     data:{user_name:user_name1,
+//     password_log:password_log1},
+//     success:function(data)
+//     {
+//       window.console.log(data);
+//       if(data !="ERROR")
+//       {
+//         window.location.href="home.php";
+//       }
+//       else
+//       {
+//         alert("ERROR")
+//       }
+//     }
+//   });
+// });
 
   </script>
 
