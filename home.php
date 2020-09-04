@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Home Page</title>
   </head>
   <body>
   <nav class="navbar navbar sticky-top navbar-expand-lg navbar-light bg-light">
@@ -36,7 +36,7 @@
     </div>
     <div class="row row-cols-1 row-cols-md-3" style="margin: 2rem;">
     <?php
-    $numer=55;
+    $numer=5;
     while($numer >0)
     {
 
@@ -52,8 +52,8 @@
         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         <input type="text" name="" id="" hidden>
         <div class="d-flex justify-content-between">
-        <a href="#" class="card-link"><button class="btn btn-primary"> Edit</button></a>
-    <a href="#" class="card-link"> <button class="btn btn-danger"> Delete</button></a>
+        <div class="card-link"><button class="btn btn-primary" type="submit" formaction="edit.php"> Edit</button></div>
+    <div class="card-link"> <button class="btn btn-danger" type="submit" formaction="delete.php"> Delete</button></div>
     </div>
     </div>
     </div>

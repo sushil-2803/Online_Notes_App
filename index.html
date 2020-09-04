@@ -33,19 +33,19 @@
             <div class="col-md-6 col-lg-6 col-xl-6 col-xs-6"> 
               <div class="row align-items-center">
               <div class="col-lg-5 offset-lg-3 offset-md-2 col-md-6 border border-primary shadow-lg p-3 mb-5 bg-white rounded" >
-          <form action="" class="form-group ">
+          <form class="form-group ">
             <label for="input1">User Name</label> 
-            <input type="text" name="input1" id="input1" class="form-control ">
+            <input type="text" name="user_name" id="user_name" class="form-control ">
             <p id="firstname"></p>
             <label for="input2">Password</label>   
-            <input type="password" name="input2" id="input2" class="form-control" >
+            <input type="password" name="password_log" id="password_log" class="form-control" >
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="checkbox" id="inlineCheckbox1" onclick="myfunction('input2')">
               <label class="form-check-label" for="inlineCheckbox1">Show Password</label>
             </div>
             <br>
 
-            <input type="submit" class="btn btn-primary col-5" >
+            <input type="submit" id="login_submit" class="btn btn-primary col-5" value="Login" >
             <button type="button" class="btn btn-primary col-5" data-toggle="modal" data-target="#exampleModal">
               Register
             </button>
@@ -231,6 +231,8 @@ $("#Username").on('keyup keypress keydown', function(){
       });
   }
 });
+
+
 // Registration
  $('#register').on('click',function(){
   var firstname=$("#Firstname").val();
@@ -256,12 +258,43 @@ $("#Username").on('keyup keypress keydown', function(){
   
  });
 
-    </script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <!-- <script type="text/javascript" src="home.js"></script> -->
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  </body>
+// Login ajax
+$('#login_submit').on('click',function(){
+  var user_name1=$('#user_name').val();
+ // window.console.log(user_name1);
+  var password_log1=$('#password_log').val();
+ // window.console.log(password_log1);
+  //window.console.log("In login script")
+  $.ajax({
+    url: 'login.php',
+    type:"POST",
+    data:{user_name:user_name1,
+    password_log:password_log1},
+    success:function(data)
+    {
+      window.console.log(data);
+      if(data=="PASS")
+      {
+        window.location.href="home.php";
+      }
+      else
+      {
+        alert("ERROR")
+      }
+    }
+  });
+});
+
+  </script>
+
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!-- <script type="text/javascript" src="home.js"></script> -->
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+ </body>
 </html>
