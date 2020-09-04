@@ -35,12 +35,12 @@
               <div class="col-lg-5 offset-lg-3 offset-md-2 col-md-6 border border-primary shadow-lg p-3 mb-5 bg-white rounded" >
           <form class="form-group" method="POST" action="login.php">
             <label for="input1">User Name</label> 
-            <input type="text" name="user_name" id="user_name" class="form-control ">
+            <input type="text" name="user_name" id="user_name" class="form-control " required>
             <p id="firstname"></p>
             <label for="input2">Password</label>   
-            <input type="password" name="password_log" id="password_log" class="form-control" >
+            <input type="password" name="password_log" id="password_log" class="form-control" required>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" onclick="myfunction('input2')">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" onclick="myfunction('password_log')">
               <label class="form-check-label" for="inlineCheckbox1">Show Password</label>
             </div>
             <br>
