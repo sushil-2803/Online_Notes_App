@@ -11,8 +11,15 @@
     <title>Home Page</title>
   </head>
   <body>
-  <nav class="navbar navbar sticky-top navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="home.php"><?php session_start(); echo $_SESSION['username']; ?></a>
+    <?php
+    session_start();
+    if(!isset($_SESSION['username']))
+    {
+      header('location:logout.php');
+    }
+    ?>
+    <nav class="navbar navbar sticky-top navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="home.php"><?php echo $_SESSION['username']; ?></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
