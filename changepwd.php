@@ -22,7 +22,7 @@ $username=$_SESSION['username'];
 
 <body>
 <!-- Nav Start -->
-<nav class="navbar navbar sticky-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar sticky-top navbar-expand-lg navbar-dark bg-info">
   <a class="navbar-brand" href="home.php">Change Password</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -30,7 +30,7 @@ $username=$_SESSION['username'];
   <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active " >
-      <a href="home.php"><button class="btn  my-2 my-sm-0" type="submit">Home</button></a>
+      <a href="home.php"><button class="btn btn-info my-2 my-sm-0" type="submit" >Home</button></a>
       </li>
     </ul>
   </div>

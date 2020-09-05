@@ -19,7 +19,7 @@
     }
     $username=$_SESSION['username'];
     ?>
-    <nav class="navbar navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar sticky-top navbar-expand-lg navbar-dark bg-info">
   <a class="navbar-brand" href="home.php">Welcome, <?php echo $username ?></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -33,11 +33,13 @@
         <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active " >
-      <a href="logout.php"><button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Logout</button></a>
+      <a href="logout.php"><button class=" btn btn-danger my-2 my-sm-0" type="submit">Logout</button></a>
       </li>
     </ul>
   </div>
 </nav>
+<!-- Nav End -->
+<!-- Fetching Notes -->
     <div class="container-fluid" >
     <div class="row " style="margin: 2rem;">
            <a href="new.php"><button class="btn btn-primary "> New Note</button></a>
@@ -58,10 +60,13 @@
 <form method="post" action="">
   <div class="col mb-4 ">
     <div class="card">
+    
+        <h5 class="card-title card-header <?php echo ($row['imp']==1)?'bg-danger':'bg-primary'?> text-white"><?php echo $row['tittle'] ?></h5>
+        
       <div class="card-body col-md-12 col-sm-12">
-        <h5 class="card-title"><?php echo $row['tittle'] ?></h5>
         <p class="card-text"><?php echo substr($row['note_body'],0,100) ?></p>
         <input type="text" name="note_id" id="note_id" value='<?php echo $row["note_id"] ?>' hidden>
+        
         <div class="d-flex justify-content-between">
         <div class="card-link"><button class="btn btn-primary" type="submit" formaction="edit.php"> View/Edit</button></div>
     <div class="card-link"> <button class="btn btn-danger" type="submit" formaction="delete.php"> Delete</button></div>
