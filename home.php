@@ -27,7 +27,7 @@
   <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#"> Change Password <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="changepwd.php"> Change Password <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
@@ -60,10 +60,10 @@
     <div class="card">
       <div class="card-body col-md-12 col-sm-12">
         <h5 class="card-title"><?php echo $row['tittle'] ?></h5>
-        <p class="card-text"><?php echo $row['note_body'] ?></p>
+        <p class="card-text"><?php echo substr($row['note_body'],0,100) ?></p>
         <input type="text" name="note_id" id="note_id" value='<?php echo $row["note_id"] ?>' hidden>
         <div class="d-flex justify-content-between">
-        <div class="card-link"><button class="btn btn-primary" type="submit" formaction="edit.php"> Edit</button></div>
+        <div class="card-link"><button class="btn btn-primary" type="submit" formaction="edit.php"> View/Edit</button></div>
     <div class="card-link"> <button class="btn btn-danger" type="submit" formaction="delete.php"> Delete</button></div>
     </div>
     </div>
