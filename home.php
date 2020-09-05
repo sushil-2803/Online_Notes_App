@@ -17,9 +17,10 @@
     {
       header('location:logout.php');
     }
+    $username=$_SESSION['username'];
     ?>
     <nav class="navbar navbar sticky-top navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="home.php"><?php echo $_SESSION['username']; ?></a>
+  <a class="navbar-brand" href="home.php">Welcome, <?php echo $username ?></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -43,21 +44,24 @@
     </div>
     <div class="row row-cols-1 row-cols-md-3" style="margin: 2rem;">
     <?php
-    $numer=5;
-    while($numer >0)
+    include 'db.php';
+    $query_select_note="SELECT * FROM `note` WHERE `username`='$username'";
+    $res_select_note=mysqli_query($conn,$query_select_note);
+    if(mysqli_num_rows($res_select_note)>0)
     {
 
     
-
+      while($row=mysqli_fetch_assoc($res_select_note))
+    {
     ?>
     <!-- Card To display Note  -->
 <form method="post" action="">
   <div class="col mb-4 ">
     <div class="card">
       <div class="card-body col-md-12 col-sm-12">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <input type="text" name="" id="" hidden>
+        <h5 class="card-title"><?php echo $row['tittle'] ?></h5>
+        <p class="card-text"><?php echo $row['note_body'] ?></p>
+        <input type="text" name="note_id" id="note_id" value='<?php echo $row["note_id"] ?>' hidden>
         <div class="d-flex justify-content-between">
         <div class="card-link"><button class="btn btn-primary" type="submit" formaction="edit.php"> Edit</button></div>
     <div class="card-link"> <button class="btn btn-danger" type="submit" formaction="delete.php"> Delete</button></div>
@@ -68,8 +72,16 @@
   <!-- Card To display End -->
 </form>
  <?php
- $numer=$numer-1;
+
     }
+  }
+  else
+  {
+    ?>
+
+
+    <?php
+  }
  ?>
 </div>
 
