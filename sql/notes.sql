@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2020 at 05:15 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Generation Time: Sep 05, 2020 at 11:11 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `notes`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `note`
+--
+
+CREATE TABLE `note` (
+  `note_id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `tittle` varchar(500) NOT NULL,
+  `note_body` longtext NOT NULL,
+  `imp` int(1) NOT NULL DEFAULT 0,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -40,17 +55,34 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`first_name`, `last_name`, `email_id`, `username`, `password`) VALUES
-('Sushil', 'Dubey', 'sushilanildubey@gmail.com', 'sushil123', 'asdfopnm28/');
+('Sushil', 'Dubey', 'sushilanildubey@gmail.com', 'flyingphoenix', '123'),
+('Sushil', 'Dubey', 'sushilanildubey@gmail.com', 'sushil123', '12345678');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `note`
+--
+ALTER TABLE `note`
+  ADD PRIMARY KEY (`note_id`);
+
+--
 -- Indexes for table `user_details`
 --
 ALTER TABLE `user_details`
   ADD PRIMARY KEY (`username`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `note`
+--
+ALTER TABLE `note`
+  MODIFY `note_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
