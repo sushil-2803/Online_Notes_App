@@ -45,7 +45,7 @@ $username=$_SESSION['username'];
 
     <div class="container-fluid mx-auto" style="margin-top:10rem"> 
         <div class="row align-items-center">
-            <div class="offset-lg-1 offset-md-1 col-lg-5">
+            <div class="offset-lg-1 offset-md-1 col-6">
             <form method="POST" action="">
                 <div class="form-group">
                     <input type="text" maxlength="90" class="form-control" id="note_tittle" name="note_tittle" placeholder="Tittle of the note" required>
@@ -53,6 +53,7 @@ $username=$_SESSION['username'];
                 <div class="form-group">
                    <textarea maxlength="5000" class="form-control " rows="5"  id ="note_body" name= "note_body" placeholder="Description"required></textarea>
                 </div>
+                <input type="checkbox" name="imp" value=1> Mark as Important
                 <p id="word_count"><small>0/5000</small></p>
                 <input type="submit" class="btn btn-primary" name="submit">
             </form>
@@ -124,10 +125,18 @@ $('#note_body').on('keyup keypress keydown',function(){
 //INSERT new note
 if(@$_POST['submit'])
 {
+  if(@$_POST['imp'])
+  {
+    $imp=1;
+  }
+  else
+  {
+    $imp=0;
+  }
   include 'db.php';
   $tittle=$_POST['note_tittle'];
   $note_body=$_POST['note_body'];
-  $query_insert="INSERT INTO `note`(`username`,`tittle`,`note_body`) VALUES('$username','$tittle','$note_body')";
+  $query_insert="INSERT INTO `note`(`username`,`tittle`,`note_body`,`imp`) VALUES('$username','$tittle','$note_body','$imp')";
   $res_insert=mysqli_query($conn,$query_insert);
   if($res_insert)
   {

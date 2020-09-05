@@ -54,9 +54,9 @@ $res_select_note=mysqli_query($conn,$query_select_note);
 $row=mysqli_fetch_assoc($res_select_note);
 ?>
 <!-- Edit Form start -->
-    <div class="container-fluid " style="margin-top:10rem"> 
-        <div class="row align-items-center justify-content-center">
-            <div class="col-6">
+    <div class="container-fluid mx-auto" style="margin-top:10rem"> 
+        <div class="row align-items-center ">
+            <div class="offset-lg-1 offset-md-1 col-6">
             <form method="POST" action="">
                 <input type="text" name="note_id" value="<?php echo $row['note_id'] ?>"  hidden >
                 <div class="form-group">
@@ -65,6 +65,7 @@ $row=mysqli_fetch_assoc($res_select_note);
                 <div class="form-group">
                    <textarea maxlength="5000" class="form-control " rows="5"  id ="note_body" name= "note_body" placeholder="Description"required><?php echo$row['note_body'];?></textarea>
                 </div>
+                <input type="checkbox" name="imp" value=1 <?php echo ($row['imp']==1)?'checked':''?> > Mark as Important
                 <p id="word_count"><small>0/5000</small></p>
                 <input type="submit" class="btn btn-primary" name="save" value="Save">
             </form>
@@ -145,11 +146,17 @@ $("#word_count").html(display_count);
 //INSERT new note
 if(@$_POST['save'])
 {
-  
-  
+  if(@$_POST['imp'])
+  {
+    $imp=1;
+  }
+  else
+  {
+    $imp=0;
+  }
   $tittle=$_POST['note_tittle'];
   $note_body=$_POST['note_body'];
-  $query_update="UPDATE `note` SET `tittle`='$tittle', `note_body`='$note_body' WHERE `note_id`='$note_id' AND `username`='$username'";
+  $query_update="UPDATE `note` SET `tittle`='$tittle', `note_body`='$note_body', `imp`='$imp' WHERE `note_id`='$note_id' AND `username`='$username'";
   $res_update=mysqli_query($conn,$query_update);
   if($res_update)
   {
