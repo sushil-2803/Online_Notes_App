@@ -1,3 +1,6 @@
+<?php
+ob_start();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -43,15 +46,15 @@ $username=$_SESSION['username'];
     <div class="container-fluid mx-auto" style="margin-top:10rem"> 
         <div class="row align-items-center">
             <div class="offset-lg-1 offset-md-1 col-lg-5">
-            <form>
+            <form method="POST" action="">
                 <div class="form-group">
-                    <input type="email" class="form-control" id="note_tittle" name="note_tittle" placeholder="Tittle of the note" required>
+                    <input type="text" maxlength="90" class="form-control" id="note_tittle" name="note_tittle" placeholder="Tittle of the note" required>
                 </div>
                 <div class="form-group">
                    <textarea maxlength="5000" class="form-control " rows="5"  id ="note_body" name= "note_body" placeholder="Description"required></textarea>
                 </div>
                 <p id="word_count"><small>0/5000</small></p>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <input type="submit" class="btn btn-primary" name="submit">
             </form>
             </div>
             <div class="col-md-2 col-lg-2 col-xl-2 col-2 justify-content-end">
@@ -116,4 +119,21 @@ $('#note_body').on('keyup keypress keydown',function(){
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 
+
+<?php
+//INSERT new note
+if(@$_POST['submit'])
+{
+  include 'db.php';
+  $tittle=$_POST['note_tittle'];
+  $note_body=$_POST['note_body'];
+  $query_insert="INSERT INTO `note`(`username`,`tittle`,`note_body`) VALUES('$username','$tittle','$note_body')";
+  $res_insert=mysqli_query($conn,$query_insert);
+  if($res_insert)
+  {
+    echo "<script>alert('Note Saved Successfully')</script>";
+    header('refresh:0,home.php');
+  }
+}
+?>
 </html>

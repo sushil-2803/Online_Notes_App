@@ -27,7 +27,7 @@
   <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#"> HOME <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#"> Change Password <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
@@ -40,12 +40,12 @@
 </nav>
     <div class="container-fluid" >
     <div class="row " style="margin: 2rem;">
-           <a href=""><button class="btn btn-primary "> New Note</button></a>
+           <a href="new.php"><button class="btn btn-primary "> New Note</button></a>
     </div>
     <div class="row row-cols-1 row-cols-md-3" style="margin: 2rem;">
     <?php
     include 'db.php';
-    $query_select_note="SELECT * FROM `note` WHERE `username`='$username'";
+    $query_select_note="SELECT * FROM `note` WHERE `username`='$username' ORDER BY `timestamp` DESC";
     $res_select_note=mysqli_query($conn,$query_select_note);
     if(mysqli_num_rows($res_select_note)>0)
     {
