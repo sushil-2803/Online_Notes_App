@@ -58,7 +58,7 @@ box-shadow: 0px 0px 51px -16px rgba(171,171,171,1);
        <div class="alert alert-danger" role="alert" id="msg1" hidden>
         Minimum Length 8 Characters
         </div>
-       <input type="password" name="confrim_pass" id="Repassword"  class="form-control" placeholder="Confrim Password" required><br>
+       <input type="password" name="confrim_pass" id="Repassword"  class="form-control" placeholder="Confirm Password" required><br>
        <div class="alert alert-danger" role="alert"  id="msg2" hidden>
         Password Mismatch
         </div>

@@ -51,9 +51,9 @@ $res_select_note=mysqli_query($conn,$query_select_note);
 $row=mysqli_fetch_assoc($res_select_note);
 ?>
 <!-- Edit Form start -->
-    <div class="container-fluid mx-auto" style="margin-top:10rem"> 
+    <div class="container-fluid mx-auto" style="margin-top:8rem"> 
         <div class="row align-items-center ">
-            <div class="offset-lg-1 offset-md-1 col-6">
+            <div class="col-md-6 offset-lg-1">
             <form method="POST" action="">
                 <input type="text" name="note_id" value="<?php echo $row['note_id'] ?>"  hidden >
                 <div class="form-group">
@@ -67,10 +67,10 @@ $row=mysqli_fetch_assoc($res_select_note);
                 <input type="submit" class="btn btn-primary" name="save" value="Save">
             </form>
             </div>
-            <div class="col-md-2 col-lg-2 col-xl-2 col-2 justify-content-end">
-          <div class="row align-items-center ">
-            <img src="assets/newnote.svg"  style="width:25rem; margin-left:2rem" id="homeimg">
-        </div>
+            
+            <div class="col-md-4 ">
+            <br>
+            <img src="assets/newnote.svg"  style="width:100%; margin-left:2rem;" id="homeimg">
       </div>
         </div>
 </div>
