@@ -35,9 +35,6 @@ include 'db.php';
       <li class="nav-item active">
         <a class="nav-link" href="home.php"> HOME <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Profile <span class="sr-only">(current)</span></a>
-      </li>
       <li class="nav-item active " >
       <a href="logout.php"><button class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button></a>
       </li>
