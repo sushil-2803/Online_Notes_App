@@ -7,8 +7,18 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <title>Home Page</title>
+    <style>
+    .myheader
+    {
+      background-color:#3282b8;
+    }
+    .mynavbar
+    {
+      background-color:#0f4c75;
+    }
+    </style>
   </head>
   <body>
     <?php
@@ -61,7 +71,7 @@
   <div class="col mb-4 ">
     <div class="card">
     
-        <h5 class="card-title card-header <?php echo ($row['imp']==1)?'bg-danger':'bg-primary'?> text-white"><?php echo $row['tittle'] ?></h5>
+        <h5 class="card-title card-header <?php echo ($row['imp']==1)?'bg-danger':'myheader'?> text-white"><?php echo $row['tittle'] ?></h5>
         
       <div class="card-body col-md-12 col-sm-12">
         <p class="card-text"><?php echo substr($row['note_body'],0,100) ?></p>
@@ -69,13 +79,12 @@
         
         <div class="d-flex justify-content-between">
         <div class="card-link"><button class="btn btn-primary" type="submit" formaction="edit.php"> View/Edit</button></div>
-    <div class="card-link"> <button class="btn btn-danger" type="submit" formaction="delete.php"> Delete</button></div>
+    <div class="card-link"> <button class="btn btn-danger " type="submit" formaction="delete.php"><i class="fas fa-trash"></i></button></div>
     </div>
     </div>
     </div>
   </div>
-  <!-- Card To display End -->
-</form>
+  <!-- Card To display End --</form>
  <?php
 
     }

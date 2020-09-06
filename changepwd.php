@@ -18,6 +18,15 @@ $username=$_SESSION['username'];
     <!-- <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script> -->
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <title>Change Password</title>
+
+    <style>
+    .myshadow
+    {
+      -webkit-box-shadow: 0px 0px 51px -16px rgba(171,171,171,1);
+-moz-box-shadow: 0px 0px 51px -16px rgba(171,171,171,1);
+box-shadow: 0px 0px 51px -16px rgba(171,171,171,1);
+    }
+    </style>
 </head>
 
 <body>
@@ -38,7 +47,7 @@ $username=$_SESSION['username'];
 <!-- Nav End -->
 <div class="row justify-content-center " style="margin:8rem 2rem">
     <div class="col-lg-5 align-middle">
-    <div class="card text-center">
+    <div class="card myshadow text-center">
   <div class="card-header">
   Change Password
   </div>

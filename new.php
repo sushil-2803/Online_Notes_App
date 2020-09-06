@@ -45,7 +45,8 @@ $username=$_SESSION['username'];
 
     <div class="container-fluid mx-auto" style="margin-top:10rem"> 
         <div class="row align-items-center">
-            <div class="offset-lg-1 offset-md-1 col-6">
+            <!-- <div class="offset-lg-1 offset-md-1 col-6"> -->
+            <div class="col-md-6 offset-lg-1">
             <form method="POST" action="">
                 <div class="form-group">
                     <input type="text" maxlength="90" class="form-control" id="note_tittle" name="note_tittle" placeholder="Tittle of the note" required>
@@ -58,11 +59,12 @@ $username=$_SESSION['username'];
                 <input type="submit" class="btn btn-primary" name="submit">
             </form>
             </div>
-            <div class="col-md-2 col-lg-2 col-xl-2 col-2 justify-content-end">
-          <div class="row align-items-center ">
-            <img src="assets/newnote.svg"  style="width:25rem; margin-left:2rem" id="homeimg">
+            <div class="col-md-4">
+            <!-- <div class="col-md-2 col-lg-2 col-xl-2 col-2 justify-content-end"> -->
+          <!-- <div class="row align-items-center "> -->
+            <img src="assets/newnote.svg"  style="width:100%; margin-left:2rem" id="homeimg">
         </div>
-      </div>
+      <!-- </div> -->
         </div>
     </div>
 
