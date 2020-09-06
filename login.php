@@ -20,4 +20,9 @@ if(mysqli_num_rows($res_login)==1)
         header("refresh:0,index.html");
     }
 }
+else
+{
+    echo"<script>alert('Invalid Username')</script>";
+    header("refresh:0,index.html");
+}
 ?>
