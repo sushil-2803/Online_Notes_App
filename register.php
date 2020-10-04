@@ -5,8 +5,9 @@ include 'db.php';
  $userid= $_POST['Username'];
  $emailid= $_POST['Email'];
  $password= $_POST['pass'];
+ $hpassword=md5($password);
 
-$query="INSERT INTO `user_details`(`first_name`, `last_name`, `email_id`, `username`, `password`) VALUES ('$firstname','$lastname','$emailid','$userid','$password')";
+$query="INSERT INTO `user_details`(`first_name`, `last_name`, `email_id`, `username`, `password`) VALUES ('$firstname','$lastname','$emailid','$userid','$hpassword')";
 $res=mysqli_query($conn,$query);
 if($res)
 {

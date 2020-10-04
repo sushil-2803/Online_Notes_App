@@ -134,9 +134,11 @@ if(@isset($_POST['submit']))
         $query_select="SELECT * FROM `user_details` WHERE `username`='$username'";
         $res=mysqli_query($conn,$query_select);
         $row=mysqli_fetch_array($res);
-        if($row['password']==$old)
+        $hold=md5($old);
+        $hnew=md5($new);
+        if($row['password']==$hold)
         {
-            $query_update="UPDATE `user_details` SET `password`='$new' WHERE `username`='$username'";
+            $query_update="UPDATE `user_details` SET `password`='$hnew' WHERE `username`='$username'";
             $res_update=mysqli_query($conn,$query_update);
             if($res_update)
             {
